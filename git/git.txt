@@ -49,6 +49,7 @@ git push -u cangku_name master
 远程仓库含有.gitignore有时需要强制覆盖(不推荐需备份)
 git push -fu cangku_name master
 git push cangku_name master
+git push cangku_name dev
 ==================
 远程仓库克隆到本地
 git clone git@github.com:X1ng/Cat.git
@@ -66,20 +67,41 @@ no ff 合并分支
 git merge --no-ff -m "no-ff commit" dev
 查看分支合并情况(*)
 git log --graph --pretty=oneline --abbrev-commit
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+==================
+挂起并贮藏工作区
+git stash
+查看挂起的工作区
+git stash list
+恢复工作不删除stash(git stash drop)
+git stash apply
+恢复并删除stash
+git stash pop
+多个stash恢复指定
+git stash apply stash@{0}
+=================
+克隆别人的远程dev分支开发
+git checkout -b dev(brance_name) origin/dev(brance_name)
+建立本地dev与远程origin/dev的链接(若提示no tracking information)
+git branch --set-upstream dev(brance_name) origin/dev(brance_name)
+=================
+打标签(默认打当前提交)
+git tag v1.0.0 
+查看标签
+git tag
+按commit id打标签
+git tag v1.0.0 XXXXXXX
+创建有说明的标签
+git tag -a v1.0.0 -m "this is tag" xxxxxxx
+查看标签信息
+git show v1.0.0
+标签加密..
+删除标签
+git tag -d v1.0.0
+推送远程标签
+git push xy v1.0.0
+推送全部标签
+git push xy --tags
+删除标签先删除本地，再删除远程
+git push xy :refs/tags/v1.0.0
 
 
