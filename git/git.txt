@@ -103,5 +103,5 @@ git push xy v1.0.0
 git push xy --tags
 删除标签先删除本地，再删除远程
 git push xy :refs/tags/v1.0.0
-
-
+.gitignore文件可忽略提交
+git check-ignore 查看忽略的提交
