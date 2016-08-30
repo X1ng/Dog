@@ -1,0 +1,85 @@
+安装 
+==================
+配置PC使用者的基本信息，方便知道是谁提交的
+git config --global user.name "Your Name"
+git config --global user.email "email@example.com"
+==================
+将当前目录创建git代码仓库
+madir test
+cd test
+git init
+==================
+文件添加到仓库
+git add readme.txt
+git add readme.txt test.py test.txt 
+文件提交到仓库
+git commit -m "this is readme"
+查看仓库状态
+git status
+查看修改(commint之前查看)
+git diff readme.txt
+查看提交记录
+git log
+git log --pretty=oneline
+版本回退
+git reset --hard HEAD^
+git reset --hard HEAD^^
+git reset --hard HEAD~100
+git reset --hard id
+查看提交操作信息(可现实id)
+git reflog
+==================
+撤销全部修改(未git add以前,切记备份文件,替换当前工作区版本即回退)
+git checkout -- readme.txt
+撤销修改(git add 之后)
+git reset HEAD readme.txt
+==================
+文件删除
+rm readme.txt
+git rm readme.txt
+git commit -m "remove readme"
+==================
+创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件。
+ssh-keygen -t rsa -C "youremail@example.com"
+==================
+GitHub仓库映射
+git remote add cangku_name git@github.com:X1ng/Dog.git
+本地仓库推送到远程(-u参数可同步本地master与远程的master)
+git push -u cangku_name master
+远程仓库含有.gitignore有时需要强制覆盖(不推荐需备份)
+git push -fu cangku_name master
+git push cangku_name master
+==================
+远程仓库克隆到本地
+git clone git@github.com:X1ng/Cat.git
+==================
+创建并迁移到分支
+git checkout -b dev
+显示分支
+git branch
+迁移到主分支
+git checkout master
+将dev合并到当前分支(ff合并，异同修改无法看到修改内容)
+git merge dev
+git brach -d dev
+no ff 合并分支
+git merge --no-ff -m "no-ff commit" dev
+查看分支合并情况(*)
+git log --graph --pretty=oneline --abbrev-commit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
